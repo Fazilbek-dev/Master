@@ -63,16 +63,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CanvasButton.cs" />
+    <Compile Include="Assets\CanvasRule.cs" />
     <Compile Include="Assets\CarController.cs" />
+    <Compile Include="Assets\CarController1.cs" />
+    <Compile Include="Assets\ControlCarScriptNPC.cs" />
+    <Compile Include="Assets\Death.cs" />
     <Compile Include="Assets\ForwardCamera.cs" />
-    <Compile Include="Assets\Joystick Pack\Examples\JoystickPlayerExample.cs" />
-    <Compile Include="Assets\Joystick Pack\Examples\JoystickSetterExample.cs" />
-    <Compile Include="Assets\Joystick Pack\Scripts\Base\Joystick.cs" />
-    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\DynamicJoystick.cs" />
-    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
-    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
-    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
     <None Include="Assets\SimpleFX\Materials\UnlitVertexColour_Alpha.shader" />
+    <None Include="Assets\Toon Vehicles\ToonShading\Shaders\ToonLitOutline.shader" />
+    <None Include="Assets\Toon Vehicles\ToonShading\Shaders\ToonLit.shader" />
+    <None Include="Assets\Toon Vehicles\ToonShading\Shaders\ToonBasic.shader" />
+    <None Include="Assets\Toon Vehicles\Documentation\ReadMe.txt" />
+    <None Include="Assets\Toon Vehicles\ToonShading\Shaders\ToonBasicOutline.shader" />
     <Reference Include="UnityEngine">
       <HintPath>D:/Unity/2019.4.26f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -623,7 +625,16 @@
       <HintPath>D:/UnityProject/Test3/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup></ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="SimpleInput.Runtime.csproj">
+      <Project>{841DC2D0-3F24-E305-BE1D-C4173ACD1435}</Project>
+      <Name>SimpleInput.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="SimpleInput.Editor.csproj">
+      <Project>{EA1672C8-457A-B391-4C2E-871FB00937D8}</Project>
+      <Name>SimpleInput.Editor</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

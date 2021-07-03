@@ -16,7 +16,10 @@ public class CarController : MonoBehaviour
 {
     public List<AxleInfo> axleInfos;
     public float maxMotorTorque;
+    public float speed;
     public float maxSteeringAngle;
+    public Transform mePos;
+    public Transform[] checkPoints;
     public GameObject WheelRight;
     public GameObject WheelLeft;
     //public GameObject WheelR;
@@ -24,8 +27,9 @@ public class CarController : MonoBehaviour
     public bool BackWheels;
     public bool BackFront;
     public int WheelRotateAngle = 2;
+    public float MaxDistance = 2;
 
-    public Joystick joystick;
+    public int i = 0;
 
 
     // finds the corresponding visual wheel
@@ -50,9 +54,25 @@ public class CarController : MonoBehaviour
     public void FixedUpdate()
     {
 
-        float motor = maxMotorTorque * joystick.Vertical;
-        float steering = maxSteeringAngle * joystick.Horizontal;
+        if (MaxDistance > Vector3.Distance(transform.position, checkPoints[i].position))
+        {// если MaxDistance больше дистанции до цели
+            i++;
+        }
+        if(i >= checkPoints.Length)
+        {
+            i = 0;
+        }
+        
+        var rotateNeed = Quaternion.LookRotation(checkPoints[i].transform.position - transform.position);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotateNeed,10f * Time.deltaTime);
 
+
+        float motor = maxMotorTorque;
+
+        float steering = maxSteeringAngle * (speed + 0.7f);
+
+
+        
 
         foreach (AxleInfo axleInfo in axleInfos)
         {
